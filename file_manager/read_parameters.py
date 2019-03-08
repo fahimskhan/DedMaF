@@ -26,7 +26,7 @@ class Parameters():
         print('making connection')
         scope = ['https://spreadsheets.google.com/feeds',
                  'https://www.googleapis.com/auth/drive']
-        creds = ServiceAccountCredentials.from_json_keyfile_name('/home/rfeldman/viscoturbulence/file_manager/client_secret.json', scope)
+        creds = ServiceAccountCredentials.from_json_keyfile_name('client_secret.json', scope)
         client = gspread.authorize(creds)
         return client.open("viscoTurb_test").sheet1
 
@@ -80,16 +80,17 @@ class Parameters():
     def createDirectory(self):
         print('creatingDirectory')
         run_dir = Path.home().joinpath(self.buildLocation) 
-        print(Path.home() / (self.buildLocation))
+        print('run dir: ' + str(run_dir))
+        print(Path.home())
         run_dir.mkdir(exist_ok=True, parents=True)
         configFile = run_dir.joinpath('run_' + str(self.identifier) + '.cfg')
         with configFile.open('w') as wf:
             self.config.write(wf)
-        simFile = Path.home().joinpath('viscoturbulence', 'viscoturb.py')
-        simFile2 = Path.home().joinpath('viscoturbulence', 'kturb.py')
-        self.force_symlink(simFile2, run_dir.joinpath('kturb.py'))
+        simFile = '/Users/Reed/Desktop/thesis/simulation_builder/viscoturb.py'
+        simFile2 = '/Users/Reed/Desktop/thesis/simulation_builder/kturb.py'
+        self.force_symlink(simFile2, 'Users/Reed/Desktop/thesis/simulation_builder/runs/B/kturb.py')
         self.force_symlink(simFile, run_dir.joinpath('viscoturb.py'))
-        copyfile('/home/rfeldman/viscoturbulence/run_kturb.sh', str(run_dir) + '/run{}_kturb.sh'.format(self.identifier))
+        copyfile('/Users/Reed/Desktop/thesis/simulation_builder/run_kturb.sh', str(run_dir) + '/run{}_kturb.sh'.format(self.identifier))
  
     def force_symlink(self, file1, file2):
         try:
