@@ -7,12 +7,9 @@ from pathlib import Path
 import os, errno
 from shutil import copyfile
 
-
+#Parameters class is the main controller for the program
 class Parameters():
-    idCounter = 0
-    stop = False
     def __init__(self):
-        Parameters.idCounter += 1
         self.name = 'Parameters_{0}'.format(Parameters.idCounter)
         self.status = 'incomplete'
         self.sheet = self.makeConnection()
@@ -22,18 +19,18 @@ class Parameters():
         self.createConfig()
         self.createDirectory()
 
+#Establishes connection with google sheet
     def makeConnection(self):
         print('making connection')
         scope = ['https://spreadsheets.google.com/feeds',
                  'https://www.googleapis.com/auth/drive']
         creds = ServiceAccountCredentials.from_json_keyfile_name('client_secret.json', scope)
         client = gspread.authorize(creds)
+        #pass in name of the spreadsheet to client.open (case sensitive)
         return client.open("viscoTurb_test").sheet1
 
-    def getLastIndex(self):
-        return len(self.makeConnection().get_all_values())
-
-    #write functionality that doesn't break if someone doesn't have enough params
+#Read parameters from spreadsheet
+#attribute corresponds to column in spreadsheet
     def setParameters(self):
         values_list = self.sheet.row_values(self.lastIndex)
         self.identifier = values_list[0]
@@ -46,9 +43,9 @@ class Parameters():
         self.Re = values_list[8]
         self.Wi = values_list[9]
         self.eta = values_list[10]
-        #run sim and update self.status to be in progress --> read parameter status
 
-    #readConfig takes the global .cfg file as input
+
+    #readConfig takes the directory.cfg file as input
     def readConfig(self):
         print('readingConfig')
         config = configparser.ConfigParser()
@@ -58,7 +55,6 @@ class Parameters():
 
     #createConfig will create the local config file inside the project directory
     #Must read global config first so that you know where to put local one
-    #this function should be called by createDirectory()
     def createConfig(self):
         print('creatingLocal conig')
         self.config = configparser.ConfigParser()
@@ -66,7 +62,6 @@ class Parameters():
                              'stop_sim_time': self.stop_sim_time,
                              'dt': self.dt
                              }
-        #place location corresponding to Levitt folder structure
         self.config['params'] = {'nL': self.nL,
                               'nx': self.nX,
 				'ny': self.nY,
@@ -75,29 +70,29 @@ class Parameters():
 				'eta':self.eta}
         return self.config
 
-    #use pathlib to create directory
-    #take example config as input
+#creates build directory
+#writes .cfg file, run_kturb.sh file, and symlink files (viscoturb, kturb) to build directory
     def createDirectory(self):
         print('creatingDirectory')
         run_dir = Path.home().joinpath(self.buildLocation)
-        copy_dir = Path.home().joinpath(self.copyLocation) 
+        copy_dir = Path.home().joinpath(self.copyLocation)
         print('run dir: ' + str(run_dir))
         print('copy dir: ' + str(copy_dir))
+        #create directory at appropriate location
         run_dir.mkdir(exist_ok=True, parents=True)
         configFile = run_dir.joinpath('run_' + str(self.identifier) + '.cfg')
-        with configFile.open('w') as wf:
-            self.config.write(wf)
-        simFile = '/Users/Reed/Desktop/thesis/simulation_builder/viscoturb.py'
-        simFile2 = '/Users/Reed/Desktop/thesis/simulation_builder/kturb.py'
         self.force_symlink(copy_dir.joinpath('kturb.py'), run_dir.joinpath('kturb.py'))
         self.force_symlink(copy_dir.joinpath('viscoturb.py'), run_dir.joinpath('viscoturb.py'))
         copyfile(copy_dir.joinpath('run_kturb.sh'), str(run_dir) + '/run{}_kturb.sh'.format(self.identifier))
+        with configFile.open('w') as wf:
+            self.config.write(wf)
 
+    #helper function to make sure symlink doesnt already exist
+    #if symlink exsits, overwrite it
     def force_symlink(self, file1, file2):
         try:
             os.symlink(file1, file2)
         except OSError as  e:
             if e.errno == errno.EEXIST:
                 os.remove(file2)
-                os.symlink(file1, file2)  
-
+                os.symlink(file1, file2)
