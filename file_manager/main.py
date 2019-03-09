@@ -1,4 +1,4 @@
-#!~/miniconda3/bin/python
+
 from read_parameters import Parameters
 import time
 

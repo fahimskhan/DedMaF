@@ -52,7 +52,7 @@ class Parameters():
     def readConfig(self):
         print('readingConfig')
         config = configparser.ConfigParser()
-        config.read('example.cfg')
+        config.read('directory.cfg')
         self.buildLocation = config['Paths']['base_dir'] + '/' + str(self.identifier)
         self.copyLocation = config['Paths']['copy_dir']
 
