@@ -54,7 +54,7 @@ class Parameters():
         config = configparser.ConfigParser()
         config.read('example.cfg')
         self.buildLocation = config['Paths']['base_dir'] + '/' + str(self.identifier)
-        print(self.buildLocation)
+        self.copyLocation = config['Paths']['copy_dir']
 
     #createConfig will create the local config file inside the project directory
     #Must read global config first so that you know where to put local one
@@ -79,19 +79,20 @@ class Parameters():
     #take example config as input
     def createDirectory(self):
         print('creatingDirectory')
-        run_dir = Path.home().joinpath(self.buildLocation) 
+        run_dir = Path.home().joinpath(self.buildLocation)
+        copy_dir = Path.home().joinpath(self.copyLocation) 
         print('run dir: ' + str(run_dir))
-        print(Path.home())
+        print('copy dir: ' + str(copy_dir))
         run_dir.mkdir(exist_ok=True, parents=True)
         configFile = run_dir.joinpath('run_' + str(self.identifier) + '.cfg')
         with configFile.open('w') as wf:
             self.config.write(wf)
         simFile = '/Users/Reed/Desktop/thesis/simulation_builder/viscoturb.py'
         simFile2 = '/Users/Reed/Desktop/thesis/simulation_builder/kturb.py'
-        self.force_symlink(simFile2, 'Users/Reed/Desktop/thesis/simulation_builder/runs/B/kturb.py')
-        self.force_symlink(simFile, run_dir.joinpath('viscoturb.py'))
-        copyfile('/Users/Reed/Desktop/thesis/simulation_builder/run_kturb.sh', str(run_dir) + '/run{}_kturb.sh'.format(self.identifier))
- 
+        self.force_symlink(copy_dir.joinpath('kturb.py'), run_dir.joinpath('kturb.py'))
+        self.force_symlink(copy_dir.joinpath('viscoturb.py'), run_dir.joinpath('viscoturb.py'))
+        copyfile(copy_dir.joinpath('run_kturb.sh'), str(run_dir) + '/run{}_kturb.sh'.format(self.identifier))
+
     def force_symlink(self, file1, file2):
         try:
             os.symlink(file1, file2)
