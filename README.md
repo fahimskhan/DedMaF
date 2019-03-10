@@ -24,6 +24,8 @@
 #### After you've activated the environment check to see that the correct version of python is installed.  $python = 3.6.5
 
 ## Step 5: (Create Simulations)
+#### Go to the spreadsheet: https://docs.google.com/spreadsheets/d/1TOUPNYog7RITssPil9atp5nwdF_UQOnpU_FCMGXQKY0/edit#gid=0
+#### Fill out parameters accordingly.  Note that parameters correspond to attributes on Parameters() object inside of file_manager/read_parameters.py 
 #### Navigate to file_manager and run $python main.py
 
 #### To verify if the build worked, navigate to simulation_builder/runs  You should see the name of the folder that corresponds with the identifier on the google sheet
