@@ -10,7 +10,6 @@ from shutil import copyfile
 #Parameters class is the main controller for the program
 class Parameters():
     def __init__(self):
-        self.name = 'Parameters_{0}'.format(Parameters.idCounter)
         self.status = 'incomplete'
         self.sheet = self.makeConnection()
         self.lastIndex = len(self.sheet.get_all_values())
