@@ -1,5 +1,7 @@
 #This file takes last row of spreadsheet as input
-# reads parameters into key value pairs
+#Make sure the last row is corresponds to the simulation you wish to build!
+
+#imports and packages
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 import configparser
@@ -8,13 +10,15 @@ import os, errno
 from shutil import copyfile
 
 #Parameters class is the main controller for the program
+#upon initialization, establish connection with google sheet
 class Parameters():
     def __init__(self):
         self.status = 'incomplete'
         self.sheet = self.makeConnection()
         self.lastIndex = len(self.sheet.get_all_values())
         self.setParameters()
-        self.readConfig()
+        #pass in global .cfg file --> directory.cfg
+        self.readConfig('directory.cfg')
         self.createConfig()
         self.createDirectory()
 
@@ -31,7 +35,9 @@ class Parameters():
 #Read parameters from spreadsheet
 #attribute corresponds to column in spreadsheet
     def setParameters(self):
+        #array of values that are in the last row
         values_list = self.sheet.row_values(self.lastIndex)
+        #parameters:
         self.identifier = values_list[0]
         self.stop_wall_time = values_list[1]
         self.stop_sim_time = values_list[2]
@@ -45,15 +51,18 @@ class Parameters():
 
 
     #readConfig takes the directory.cfg file as input
-    def readConfig(self):
+    def readConfig(self, configFile):
         print('readingConfig')
         config = configparser.ConfigParser()
-        config.read('directory.cfg')
+        config.read(configFile)
+        #buildLocation is the path to run folder/self.identifer (for example: simulation_builder/B)
         self.buildLocation = config['Paths']['base_dir'] + '/' + str(self.identifier)
+        #copyLocation points to top level folder in git repo (simulation_builder)
         self.copyLocation = config['Paths']['copy_dir']
 
     #createConfig will create the local config file inside the project directory
-    #Must read global config first so that you know where to put local one
+    #set parameters from spreadsheet inside run_'self.identifier'.cfg -->
+    #run_B.cfg --> simulation_builder/runs/B/run_B.cfg
     def createConfig(self):
         print('creatingLocal conig')
         self.config = configparser.ConfigParser()
@@ -70,19 +79,27 @@ class Parameters():
         return self.config
 
 #creates build directory
-#writes .cfg file, run_kturb.sh file, and symlink files (viscoturb, kturb) to build directory
+#writes run_B.cfg file, run_B_kturb.sh file, and symlink files (viscoturb.py, kturb.py) to build directory
+#After this function, user should have a run directory with all neccesary files
     def createDirectory(self):
         print('creatingDirectory')
         run_dir = Path.home().joinpath(self.buildLocation)
+        #run_dir example: /home/rfeldman/simulation_builder/runs/B
         copy_dir = Path.home().joinpath(self.copyLocation)
+        #copy_dir example: /home/rfeldman/simulation_builder
         print('run dir: ' + str(run_dir))
         print('copy dir: ' + str(copy_dir))
         #create directory at appropriate location
         run_dir.mkdir(exist_ok=True, parents=True)
+        #add configFile to directory we just created
         configFile = run_dir.joinpath('run_' + str(self.identifier) + '.cfg')
+        #creates symlink from kturb.py in copy directory to kturb.py in run directory
         self.force_symlink(copy_dir.joinpath('kturb.py'), run_dir.joinpath('kturb.py'))
+        #creates symlink from viscoturb.py in copy directory to kturb.py in run directory
         self.force_symlink(copy_dir.joinpath('viscoturb.py'), run_dir.joinpath('viscoturb.py'))
+        #copy run.sh file from copy directory to run directory: --> runB_ktrub.sh for self.identifier = B
         copyfile(copy_dir.joinpath('run_kturb.sh'), str(run_dir) + '/run{}_kturb.sh'.format(self.identifier))
+        #populate run_B.cfg file with contents from createConfig()
         with configFile.open('w') as wf:
             self.config.write(wf)
 
