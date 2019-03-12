@@ -8,6 +8,7 @@ import configparser
 from pathlib import Path
 import os, errno
 from shutil import copyfile
+import logging
 
 #Parameters class is the main controller for the program
 #upon initialization, establish connection with google sheet
@@ -24,7 +25,7 @@ class Parameters():
 
 #Establishes connection with google sheet
     def makeConnection(self):
-        print('making connection')
+        logging.debug('making connections')
         scope = ['https://spreadsheets.google.com/feeds',
                  'https://www.googleapis.com/auth/drive']
         creds = ServiceAccountCredentials.from_json_keyfile_name('client_secret.json', scope)
@@ -52,7 +53,7 @@ class Parameters():
 
     #readConfig takes the directory.cfg file as input
     def readConfig(self, configFile):
-        print('readingConfig')
+        logging.debug('readingConfig')
         config = configparser.ConfigParser()
         config.read(configFile)
         #buildLocation is the path to run folder/self.identifer (for example: simulation_builder/B)
@@ -64,7 +65,7 @@ class Parameters():
     #set parameters from spreadsheet inside run_'self.identifier'.cfg -->
     #run_B.cfg --> simulation_builder/runs/B/run_B.cfg
     def createConfig(self):
-        print('creatingLocal conig')
+        logging.debug('creatingLocal conig')
         self.config = configparser.ConfigParser()
         self.config['run'] = {'stop_wall_time': self.stop_wall_time,
                              'stop_sim_time': self.stop_sim_time,
@@ -82,13 +83,13 @@ class Parameters():
 #writes run_B.cfg file, run_B_kturb.sh file, and symlink files (viscoturb.py, kturb.py) to build directory
 #After this function, user should have a run directory with all neccesary files
     def createDirectory(self):
-        print('creatingDirectory')
+        logging.debug('creatingDirectory')
         run_dir = Path.home().joinpath(self.buildLocation)
         #run_dir example: /home/rfeldman/simulation_builder/runs/B
         copy_dir = Path.home().joinpath(self.copyLocation)
         #copy_dir example: /home/rfeldman/simulation_builder
-        print('run dir: ' + str(run_dir))
-        print('copy dir: ' + str(copy_dir))
+        logging.debug('run dir: ' + str(run_dir))
+        logging.debug('copy dir: ' + str(copy_dir))
         #create directory at appropriate location
         run_dir.mkdir(exist_ok=True, parents=True)
         #add configFile to directory we just created
