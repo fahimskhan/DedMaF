@@ -65,7 +65,7 @@ class Parameters():
     #set parameters from spreadsheet inside run_'self.identifier'.cfg -->
     #run_B.cfg --> simulation_builder/runs/B/run_B.cfg
     def createConfig(self):
-        logging.debug('creatingLocal conig')
+        logging.debug('creatingLocal config file')
         self.config = configparser.ConfigParser()
         self.config['run'] = {'stop_wall_time': self.stop_wall_time,
                              'stop_sim_time': self.stop_sim_time,
