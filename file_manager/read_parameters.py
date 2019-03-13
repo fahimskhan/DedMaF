@@ -100,6 +100,7 @@ class Parameters():
         self.force_symlink(copy_dir.joinpath('viscoturb.py'), run_dir.joinpath('viscoturb.py'))
         #copy run.sh file from copy directory to run directory: --> runB_ktrub.sh for self.identifier = B
         copyfile(copy_dir.joinpath('run_kturb.sh'), str(run_dir) + '/run{}_kturb.sh'.format(self.identifier))
+        copyfile('parse_kturb.py', str(run_dir) + '/parse{}_kturb.py'.format(self.identifier))
         #populate run_B.cfg file with contents from createConfig()
         with configFile.open('w') as wf:
             self.config.write(wf)
