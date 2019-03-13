@@ -1,0 +1,15 @@
+2019-03-12 13:54:19,831 - root - DEBUG - making connections
+2019-03-12 13:54:19,835 - oauth2client.crypt - DEBUG - [b'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6ImFjMzM1OGM5NDBhMDljYjYxYTEzNDEyNmM4Y2VlMzc5OTM1ODBhMDEifQ', b'eyJhdWQiOiJodHRwczovL29hdXRoMi5nb29nbGVhcGlzLmNvbS90b2tlbiIsInNjb3BlIjoiaHR0cHM6Ly9zcHJlYWRzaGVldHMuZ29vZ2xlLmNvbS9mZWVkcyBodHRwczovL3d3dy5nb29nbGVhcGlzLmNvbS9hdXRoL2RyaXZlIiwiaWF0IjoxNTUyNDEzMjU5LCJleHAiOjE1NTI0MTY4NTksImlzcyI6Imxldml0dEBsZXZpdHQuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20ifQ', b'LlfmDKKCqbZVl9_L-CAdIFoUZ4jD_TkZrS0S8vI3CO9NHNcCkTkKS9RiMZoTTh8dQDQIkDXVK5OsMxLenXkGbhullcasV6GMZQKTeV7b-vxDItfrDkMcySLkU8P1cTxZdZg_nVjvRv8aUd_CgmXHQ7OM1a1tqcF4ONoSECb7HGjrKk9DGSC0uCfKyMqNN-SZRzcH9fEn7rqIzlI8vOIommYsl2oz9PQp761rs5pKgaO6VNtlaDZyMvkALLl_ze4C0yoqUIPBiScHNzr7lngM3hCr5wNY3D5vF7b_y0-awvkpzvifHn9wsoe8lgv0TJRHo1ShoB299EJdeqebOyzG4Q']
+2019-03-12 13:54:19,835 - oauth2client.client - INFO - Refreshing access_token
+2019-03-12 13:54:20,013 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): www.googleapis.com
+2019-03-12 13:54:20,451 - urllib3.connectionpool - DEBUG - https://www.googleapis.com:443 "GET /drive/v3/files?q=mimeType%3D%27application%2Fvnd.google-apps.spreadsheet%27&pageSize=1000&supportsTeamDrives=True&includeTeamDriveItems=True HTTP/1.1" 200 None
+2019-03-12 13:54:20,455 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): sheets.googleapis.com
+2019-03-12 13:54:20,731 - urllib3.connectionpool - DEBUG - https://sheets.googleapis.com:443 "GET /v4/spreadsheets/1TOUPNYog7RITssPil9atp5nwdF_UQOnpU_FCMGXQKY0?includeGridData=false HTTP/1.1" 200 None
+2019-03-12 13:54:20,875 - urllib3.connectionpool - DEBUG - https://sheets.googleapis.com:443 "GET /v4/spreadsheets/1TOUPNYog7RITssPil9atp5nwdF_UQOnpU_FCMGXQKY0/values/Sheet1 HTTP/1.1" 200 None
+2019-03-12 13:54:21,011 - urllib3.connectionpool - DEBUG - https://sheets.googleapis.com:443 "GET /v4/spreadsheets/1TOUPNYog7RITssPil9atp5nwdF_UQOnpU_FCMGXQKY0/values/Sheet1%21A11%3A11?valueRenderOption=FORMATTED_VALUE HTTP/1.1" 200 None
+2019-03-12 13:54:21,012 - root - DEBUG - readingConfig
+2019-03-12 13:54:21,012 - root - DEBUG - creatingLocal conig
+2019-03-12 13:54:21,013 - root - DEBUG - creatingDirectory
+2019-03-12 13:54:21,013 - root - DEBUG - run dir: /Users/Reed/Desktop/thesis/simulation_builder/runs/J
+2019-03-12 13:54:21,013 - root - DEBUG - copy dir: /Users/Reed/Desktop/thesis/simulation_builder
+2019-03-12 13:54:21,014 - root - DEBUG - {'status': 'incomplete', 'sheet': <Worksheet 'Sheet1' id:0>, 'lastIndex': 11, 'identifier': 'J', 'stop_wall_time': '86400', 'stop_sim_time': '10000', 'dt': '0.01', 'nL': '4', 'nX': '64', 'nY': '64', 'Re': '0.5', 'Wi': '12', 'eta': '0', 'buildLocation': 'Desktop/thesis/simulation_builder/runs/J', 'copyLocation': 'Desktop/thesis/simulation_builder', 'config': <configparser.ConfigParser object at 0x105aa8860>}
