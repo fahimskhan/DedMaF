@@ -101,6 +101,7 @@ class Parameters():
         #copy run.sh file from copy directory to run directory: --> runB_ktrub.sh for self.identifier = B
         copyfile(copy_dir.joinpath('run_kturb.sh'), str(run_dir) + '/run{}_kturb.sh'.format(self.identifier))
         copyfile('parse_kturb.py', str(run_dir) + '/parse{}_kturb.py'.format(self.identifier))
+        copyfile(copy_dir.joinpath('plot_energy.py'), str(run_dir) + '/plot_energy_{}.py'.format(self.identifier))
         #populate run_B.cfg file with contents from createConfig()
         with configFile.open('w') as wf:
             self.config.write(wf)

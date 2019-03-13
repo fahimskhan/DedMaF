@@ -1,15 +1,15 @@
-2019-03-13 11:27:39,329 - root - DEBUG - making connections
-2019-03-13 11:27:39,333 - oauth2client.crypt - DEBUG - [b'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6ImFjMzM1OGM5NDBhMDljYjYxYTEzNDEyNmM4Y2VlMzc5OTM1ODBhMDEifQ', b'eyJhdWQiOiJodHRwczovL29hdXRoMi5nb29nbGVhcGlzLmNvbS90b2tlbiIsInNjb3BlIjoiaHR0cHM6Ly9zcHJlYWRzaGVldHMuZ29vZ2xlLmNvbS9mZWVkcyBodHRwczovL3d3dy5nb29nbGVhcGlzLmNvbS9hdXRoL2RyaXZlIiwiaWF0IjoxNTUyNDkwODU5LCJleHAiOjE1NTI0OTQ0NTksImlzcyI6Imxldml0dEBsZXZpdHQuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20ifQ', b'Akjk1mVo7Qvn5yQPCUb4xCLkLM_ffUo23PoyDuSF8TihEOY3JcQLN7RQbN_EndNcGu1GXt4gPxE82Qtqvm6AWoZAHhgewQ8dQyh0T-TJ4q8H5Lkxb0RrZ2E-XR-IR0N1sMYbgkxz2ZRNyNmpn1uLfhHocKb7Nfrk6WnMWwJp4_D2Nb53sbAmMn3UabQOveZTRZDbU53IxKtiHJ1yh1DjCtLGDAEm8OXDfsVp9tEXJv6i5W0OB1Le4hKR8KqVlQaD06OYFI1NlJk-F4r8xkesjO4CrAphlrivrHG9fSUEh8BoKStFlv80dhalAybb2v5gOuFZ2lzsPz3PvfR2OhnbsQ']
-2019-03-13 11:27:39,333 - oauth2client.client - INFO - Refreshing access_token
-2019-03-13 11:28:54,618 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): www.googleapis.com
-2019-03-13 11:30:10,636 - urllib3.connectionpool - DEBUG - https://www.googleapis.com:443 "GET /drive/v3/files?q=mimeType%3D%27application%2Fvnd.google-apps.spreadsheet%27&pageSize=1000&supportsTeamDrives=True&includeTeamDriveItems=True HTTP/1.1" 200 None
-2019-03-13 11:30:10,662 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): sheets.googleapis.com
-2019-03-13 11:31:27,242 - urllib3.connectionpool - DEBUG - https://sheets.googleapis.com:443 "GET /v4/spreadsheets/1TOUPNYog7RITssPil9atp5nwdF_UQOnpU_FCMGXQKY0?includeGridData=false HTTP/1.1" 200 None
-2019-03-13 11:31:28,024 - urllib3.connectionpool - DEBUG - https://sheets.googleapis.com:443 "GET /v4/spreadsheets/1TOUPNYog7RITssPil9atp5nwdF_UQOnpU_FCMGXQKY0/values/Sheet1 HTTP/1.1" 200 None
-2019-03-13 11:31:28,820 - urllib3.connectionpool - DEBUG - https://sheets.googleapis.com:443 "GET /v4/spreadsheets/1TOUPNYog7RITssPil9atp5nwdF_UQOnpU_FCMGXQKY0/values/Sheet1%21A11%3A11?valueRenderOption=FORMATTED_VALUE HTTP/1.1" 200 None
-2019-03-13 11:31:28,821 - root - DEBUG - readingConfig
-2019-03-13 11:31:28,823 - root - DEBUG - creatingLocal config file
-2019-03-13 11:31:28,823 - root - DEBUG - creatingDirectory
-2019-03-13 11:31:28,824 - root - DEBUG - run dir: /Users/Reed/Desktop/thesis/simulation_builder/runs/J
-2019-03-13 11:31:28,824 - root - DEBUG - copy dir: /Users/Reed/Desktop/thesis/simulation_builder
-2019-03-13 11:31:28,832 - root - DEBUG - {'status': 'incomplete', 'sheet': <Worksheet 'Sheet1' id:0>, 'lastIndex': 11, 'identifier': 'J', 'stop_wall_time': '86400', 'stop_sim_time': '10000', 'dt': '0.01', 'nL': '4', 'nX': '64', 'nY': '64', 'Re': '0.5', 'Wi': '12', 'eta': '0', 'buildLocation': 'Desktop/thesis/simulation_builder/runs/J', 'copyLocation': 'Desktop/thesis/simulation_builder', 'config': <configparser.ConfigParser object at 0x10605bf60>}
+2019-03-13 17:31:01,002 - root - DEBUG - making connections
+2019-03-13 17:31:01,008 - oauth2client.crypt - DEBUG - [b'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6ImFjMzM1OGM5NDBhMDljYjYxYTEzNDEyNmM4Y2VlMzc5OTM1ODBhMDEifQ', b'eyJhdWQiOiJodHRwczovL29hdXRoMi5nb29nbGVhcGlzLmNvbS90b2tlbiIsInNjb3BlIjoiaHR0cHM6Ly9zcHJlYWRzaGVldHMuZ29vZ2xlLmNvbS9mZWVkcyBodHRwczovL3d3dy5nb29nbGVhcGlzLmNvbS9hdXRoL2RyaXZlIiwiaWF0IjoxNTUyNTEyNjYxLCJleHAiOjE1NTI1MTYyNjEsImlzcyI6Imxldml0dEBsZXZpdHQuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20ifQ', b'R197VHB4bwZ7IXolCSKFB340zTYujoG0g5FcgteuwL58gh4Iadb_pg5DdVToj6eaSYK43acQyNRVV-YiCYD4RJNtwxqFlyLtll_8MP1aX1yegabKQ4O2lWAkjwNqYPk8FX-cmLUB3VhwK2bAZmUSe8f0tzZtp1yVZxsA9M-Rs7tngQQSSAa-32CfQ2tz2nHRumsYAzbfx61DTZq0sSNs1GC7zNf6o5J9Xkr7tDiuBgyfxW3Pqk1gBLHnodtb7nV39gKG6a034SJYEAhxuh0UaYf7GXASHzHwrgt7k136O85f7NzG5iJhfwHmum9yFcbu6g3290G0V9qf8n931Khfkw']
+2019-03-13 17:31:01,009 - oauth2client.client - INFO - Refreshing access_token
+2019-03-13 17:31:01,209 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): www.googleapis.com
+2019-03-13 17:31:01,654 - urllib3.connectionpool - DEBUG - https://www.googleapis.com:443 "GET /drive/v3/files?q=mimeType%3D%27application%2Fvnd.google-apps.spreadsheet%27&pageSize=1000&supportsTeamDrives=True&includeTeamDriveItems=True HTTP/1.1" 200 None
+2019-03-13 17:31:01,659 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): sheets.googleapis.com
+2019-03-13 17:31:02,222 - urllib3.connectionpool - DEBUG - https://sheets.googleapis.com:443 "GET /v4/spreadsheets/1TOUPNYog7RITssPil9atp5nwdF_UQOnpU_FCMGXQKY0?includeGridData=false HTTP/1.1" 200 None
+2019-03-13 17:31:02,556 - urllib3.connectionpool - DEBUG - https://sheets.googleapis.com:443 "GET /v4/spreadsheets/1TOUPNYog7RITssPil9atp5nwdF_UQOnpU_FCMGXQKY0/values/Sheet1 HTTP/1.1" 200 None
+2019-03-13 17:31:02,827 - urllib3.connectionpool - DEBUG - https://sheets.googleapis.com:443 "GET /v4/spreadsheets/1TOUPNYog7RITssPil9atp5nwdF_UQOnpU_FCMGXQKY0/values/Sheet1%21A13%3A13?valueRenderOption=FORMATTED_VALUE HTTP/1.1" 200 None
+2019-03-13 17:31:02,829 - root - DEBUG - readingConfig
+2019-03-13 17:31:02,830 - root - DEBUG - creatingLocal config file
+2019-03-13 17:31:02,830 - root - DEBUG - creatingDirectory
+2019-03-13 17:31:02,831 - root - DEBUG - run dir: /home/rfeldman/test/simulation_builder/runs/L
+2019-03-13 17:31:02,831 - root - DEBUG - copy dir: /home/rfeldman/test/simulation_builder
+2019-03-13 17:31:02,832 - root - DEBUG - {'status': 'incomplete', 'sheet': <Worksheet 'Sheet1' id:0>, 'lastIndex': 13, 'identifier': 'L', 'stop_wall_time': '86400', 'stop_sim_time': '10000', 'dt': '0.01', 'nL': '4', 'nX': '64', 'nY': '64', 'Re': '0.3', 'Wi': '12', 'eta': '0', 'buildLocation': 'test/simulation_builder/runs/L', 'copyLocation': 'test/simulation_builder', 'config': <configparser.ConfigParser object at 0x2aaab67f3d68>}
