@@ -38,5 +38,5 @@ plt.ylabel("Kinetic energy")
 # plt.xlabel("time")
 # plt.ylabel(r"$\Sigma$")
 
-plt.savefig('energy.png')
+plt.savefig('plots/energy.png')
 
