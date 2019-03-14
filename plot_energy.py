@@ -3,8 +3,20 @@ import pathlib
 import h5py
 import matplotlib.pyplot as plt
 
-basedir = pathlib.Path(sys.argv[-1])
-dfile = basedir / 'timeseries/timeseries.h5'
+from pathlib import Path
+from glob import glob
+import os
+
+result=os.path.split(os.getcwd())[1]
+
+basedir = Path.cwd()
+datadir = basedir.joinpath('scratch', 'kturb_run_{}'.format(result), 'timeseries', 'timeseries_s1').glob('**/*')
+#files = [str(x) for x in datadir if x.is_file()]
+dfile = basedir.joinpath('scratch', 'kturb_run_{}'.format(result), 'timeseries', 'timeseries_s1', 'timeseries_s1_p0.h5')
+print(dfile)
+
+plot_dir = Path.cwd().joinpath('plots')
+plot_dir.mkdir(exist_ok=True, parents=True)
 
 data = h5py.File(str(dfile), "r")
 
