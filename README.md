@@ -35,5 +35,11 @@
 
 #### If you wish to create your own spreadsheet and read data from there, follow this tutorial:  https://www.twilio.com/blog/2017/02/an-easy-way-to-read-and-write-to-a-google-spreadsheet-in-python.html
 
+## Step 6: (Plotting)
+#### To plot the Kinetic Energy of kturb simulation, navigate to desired simulation inside /runs
+### $python plot_energy_(foldername).py
+#### A file energy.png is created inside runs/(foldername)/plots
+
+
 ## Step 6: (Repeat)
 #### Repeat for different parameters and keep track of builds
