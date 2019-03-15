@@ -3,7 +3,7 @@
 
 # A: (Re = 9.5)
 
-![/energypics/energy_A.png](attachment:energy_A.png)
+![energypics/energy_A.png](attachment:energy_A.png)
 
 # B: (Re = 8.5)
 
