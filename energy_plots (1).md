@@ -7,36 +7,36 @@
 
 # B: (Re = 8.5)
 
-![energy_B.png](attachment:energy_B.png)
+![energy_B.png](/energypics/energy_B.png)
 
 # C: (Re = 7.5)
 
-![energy_C.png](attachment:energy_C.png)
+![energy_C.png](/energypics/energy_C.png)
 
 # D: (Re = 6.5)
 
-![energy_D.png](attachment:energy_D.png)
+![energy_D.png](/energypics/energy_D.png)
 
 # E: (Re = 5.5)
 
-![energy_E.png](attachment:energy_E.png)
+![energy_E.png](/energypics/energy_E.png)
 
 # F: (Re = 4.5)
 
-![energy_F.png](attachment:energy_F.png)
+![energy_F.png](/energypics/energy_F.png)
 
 # G: (Re = 3.5)
 
-![energy_G.png](attachment:energy_G.png)
+![energy_G.png](/energypics/energy_G.png)
 
 # H: (Re = 2.5)
 
-![energy_H.png](attachment:energy_H.png)
+![energy_H.png](/energypics/energy_H.png)
 
 # I: (Re = 1.5)
 
-![energy_I.png](attachment:energy_I.png)
+![energy_I.png](/energypics/energy_I.png)
 
 # J: (Re = 0.5)
 
-![energy_J.png](attachment:energy_J.png)
+![energy_J.png](/energypics/energy_J.png)
