@@ -14,7 +14,7 @@ class Parse():
         logging.debug('establishing connection')
         scope = ['https://spreadsheets.google.com/feeds',
                  'https://www.googleapis.com/auth/drive']
-        creds = ServiceAccountCredentials.from_json_keyfile_name('client_secret.json', scope)
+        creds = ServiceAccountCredentials.from_json_keyfile_name('../../file_manager/client_secret.json', scope)
         client = gspread.authorize(creds)
         self.sheet = client.open("viscoTurb_test").sheet1
         self.lastIndex = len(self.sheet.get_all_values())
