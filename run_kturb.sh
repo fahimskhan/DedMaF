@@ -6,7 +6,7 @@
 #SBATCH --distribution=cyclic:cyclic
 #SBATCH --cpus-per-task=1
 
-source /home/joishi/build/dedalus_intel_mpi/bin/activate
+source /home/projects/AFDGroup/build/dedalus/bin/activate
 result=${PWD##*/} 
 
 date
