@@ -105,9 +105,16 @@ class Parameters():
             # project_name = logistics_sheet.row_values(1)
             # self.project_name = project_name[-1]
             #buildLocation is the path to run folder/self.identifer (for example: simulation_builder/B)
-            self.buildLocation = config['Paths']['base_dir'] + '/' + str(project_name) + '/runs/' + str(self.identifier)
+            if config['Paths']['base_dir']: #if build path is specified build new dir there
+                self.buildLocation = config['Paths']['base_dir'] + '/' + str(project_name) + '/runs/' + str(self.identifier)
+            else: #if build path is not specified build in home_dir/projects
+                self.buildLocation = 'projects/' + str(project_name) + '/runs/' + str(self.identifier)
             #copyLocation points to top level folder in git repo (simulation_builder)
-            self.copyLocation = config['Paths']['copy_dir'] + '/' + str(project_name)
+            if config['Paths']['copy_dir']: #same here
+                self.copyLocation = config['Paths']['copy_dir'] + '/' + str(project_name)
+            else: # copy form home_dir/project_name
+                self.copyLocation = str(project_name)
+
 
             #CREATING CONFIG
             logging.debug('creatingLocal config file')
