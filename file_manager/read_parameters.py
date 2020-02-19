@@ -21,7 +21,7 @@ class Parameters():
         self.sheet_names = sheets[2]
         # self.lastIndex = len(self.params_sheet.get_all_values())
         #self.setParameters()
-        self.doEverything('directory.cfg')
+        self.doEverything(Path.home().joinpath('simulation_builder/file_manager/directory.cfg'))
         #pass in global .cfg file --> directory.cfg
         #self.readConfig('directory.cfg')
         #self.createConfig()
@@ -32,16 +32,17 @@ class Parameters():
         logging.debug('making connections')
         scope = ['https://spreadsheets.google.com/feeds',
                  'https://www.googleapis.com/auth/drive']
-        creds = ServiceAccountCredentials.from_json_keyfile_name('client_secret.json', scope)
+        creds = ServiceAccountCredentials.from_json_keyfile_name(Path.home().joinpath('simulation_builder/file_manager/client_secret.json'), scope)
         client = gspread.authorize(creds)
         #for prop, value in vars(client).items():
         #    print('{}: {}'.format(prop, value))
         #pass in name of the spreadsheet to client.open (case sensitive)
-        all_sheets = client.openall()[:-2]
+        all_sheets = client.openall()[:-2] #edit opening all sheets except the last two
+        # print(all_sheets)
         sheet_names = []
         for sheet in all_sheets:
             sheet_names.append(str(sheet).split("'")[1])
-        print(sheet_names)
+        #print(sheet_names)
         params_sheets = []
         logistics_sheets = []
         for sheet_name in sheet_names:
@@ -63,13 +64,17 @@ class Parameters():
             params_sheet = self.params_sheets[i]
             lastIndex = len(params_sheet.get_all_values())
             values_line = logistics_sheet.row_values(2)
+            #checking if there is an input in params value line in logistics_sheet
             if len(values_line) != 1:
-                values = params_sheet.row_values(values_line[-1])[1:]
+                #if there is an input read the line indicated in the input
+                values = params_sheet.row_values(values_line[-1])[3:] #this is excluding the first three columns
             else:
-                values = params_sheet.row_values(lastIndex)[1:]
-            labels = params_sheet.row_values(1)[1:]
-            print(labels)
-            print(values)
+                #if not read the last line
+                values = params_sheet.row_values(lastIndex)[3:] #this is excluding the first three columns
+            #read labels from the top row
+            labels = params_sheet.row_values(1)[3:] #this is excluding the first three columns
+            #print(labels)
+            #print(values)
             #edit working fine till here
 
             #edit need to make an object here
@@ -79,7 +84,8 @@ class Parameters():
             self.params_labels = []
             self.params_values = []
 
-            for i in range(0,len(labels)): #changed 0 to 1
+            for i in range(0,len(labels)): #changed 0 to 3
+            #this ensures that nothing before [run] is read
                 if labels[i] == '[run]':
                     tag = 'run'
                     self.identifier = values[i]
@@ -146,6 +152,7 @@ class Parameters():
             #BUILDING directory
             logging.debug('creatingDirectory')
             run_dir = Path.home().joinpath(self.buildLocation)
+            #print(Path.home())
             #run_dir example: /home/rfeldman/simulation_builder/runs/B
             copy_dir = Path.home().joinpath(self.copyLocation)
             #copy_dir example: /home/rfeldman/simulation_builder

@@ -1,35 +1,35 @@
-2020-01-22 14:45:10,132 - root - DEBUG - making connections
-2020-01-22 14:45:10,137 - oauth2client.crypt - DEBUG - [b'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6ImFjMzM1OGM5NDBhMDljYjYxYTEzNDEyNmM4Y2VlMzc5OTM1ODBhMDEifQ', b'eyJhdWQiOiJodHRwczovL29hdXRoMi5nb29nbGVhcGlzLmNvbS90b2tlbiIsInNjb3BlIjoiaHR0cHM6Ly9zcHJlYWRzaGVldHMuZ29vZ2xlLmNvbS9mZWVkcyBodHRwczovL3d3dy5nb29nbGVhcGlzLmNvbS9hdXRoL2RyaXZlIiwiaWF0IjoxNTc5NzIyMzEwLCJleHAiOjE1Nzk3MjU5MTAsImlzcyI6Imxldml0dEBsZXZpdHQuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20ifQ', b'Q27C-nir42DOR2j6fgcTPGz8MQTWdPMZpgaSLzsfT2_ZkJTrO6Q5dgJ8MWzjm3RQxGb-jAD7Uly-brziSpTPEdilC6PrzoZ5BfJ7riQM2N5unMEGEZRYf97cxxM1hk1ftFs4BrfFRfJ8HxbGAUG8uieqIPqpn558KJrj1UicVSetucFMGFQyOiPOq_ihkLpXEmKi2xsrRmEZjMPpn4nsL5z5myJ1vGx92sWBfAU2WkirAG_Dd8oynl6FyIgnPkmPtrlE_fWO5fhKaClJxmszGtK5pr-smhz7iaQCYWSc8TzLBrTYAbEglw0dceicxZvdFYbdQv4C59ZLAC4cQtmFMg']
-2020-01-22 14:45:10,138 - oauth2client.client - INFO - Refreshing access_token
-2020-01-22 14:45:10,293 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): www.googleapis.com
-2020-01-22 14:45:10,574 - urllib3.connectionpool - DEBUG - https://www.googleapis.com:443 "GET /drive/v3/files?q=mimeType%3D%27application%2Fvnd.google-apps.spreadsheet%27&pageSize=1000&supportsTeamDrives=True&includeTeamDriveItems=True HTTP/1.1" 200 None
-2020-01-22 14:45:10,869 - urllib3.connectionpool - DEBUG - https://www.googleapis.com:443 "GET /drive/v3/files?q=mimeType%3D%27application%2Fvnd.google-apps.spreadsheet%27&pageSize=1000&supportsTeamDrives=True&includeTeamDriveItems=True HTTP/1.1" 200 None
-2020-01-22 14:45:10,873 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): sheets.googleapis.com
-2020-01-22 14:45:11,358 - urllib3.connectionpool - DEBUG - https://sheets.googleapis.com:443 "GET /v4/spreadsheets/1GIV-uj0L9aW_kCKuk1xP6eBKf55MLFKQ4WRujto-318?includeGridData=false HTTP/1.1" 200 None
-2020-01-22 14:45:11,632 - urllib3.connectionpool - DEBUG - https://www.googleapis.com:443 "GET /drive/v3/files?q=mimeType%3D%27application%2Fvnd.google-apps.spreadsheet%27&pageSize=1000&supportsTeamDrives=True&includeTeamDriveItems=True HTTP/1.1" 200 None
-2020-01-22 14:45:11,867 - urllib3.connectionpool - DEBUG - https://sheets.googleapis.com:443 "GET /v4/spreadsheets/1GIV-uj0L9aW_kCKuk1xP6eBKf55MLFKQ4WRujto-318?includeGridData=false HTTP/1.1" 200 None
-2020-01-22 14:45:12,049 - urllib3.connectionpool - DEBUG - https://www.googleapis.com:443 "GET /drive/v3/files?q=mimeType%3D%27application%2Fvnd.google-apps.spreadsheet%27&pageSize=1000&supportsTeamDrives=True&includeTeamDriveItems=True HTTP/1.1" 200 None
-2020-01-22 14:45:12,359 - urllib3.connectionpool - DEBUG - https://sheets.googleapis.com:443 "GET /v4/spreadsheets/19wmyfHdLimSfdQxGceli1BIQpbfN_dxuyEOoHrTWu-A?includeGridData=false HTTP/1.1" 200 None
-2020-01-22 14:45:12,591 - urllib3.connectionpool - DEBUG - https://www.googleapis.com:443 "GET /drive/v3/files?q=mimeType%3D%27application%2Fvnd.google-apps.spreadsheet%27&pageSize=1000&supportsTeamDrives=True&includeTeamDriveItems=True HTTP/1.1" 200 None
-2020-01-22 14:45:12,715 - urllib3.connectionpool - DEBUG - https://sheets.googleapis.com:443 "GET /v4/spreadsheets/19wmyfHdLimSfdQxGceli1BIQpbfN_dxuyEOoHrTWu-A?includeGridData=false HTTP/1.1" 200 None
-2020-01-22 14:45:13,330 - urllib3.connectionpool - DEBUG - https://sheets.googleapis.com:443 "GET /v4/spreadsheets/1GIV-uj0L9aW_kCKuk1xP6eBKf55MLFKQ4WRujto-318/values/Sheet1 HTTP/1.1" 200 None
-2020-01-22 14:45:13,617 - urllib3.connectionpool - DEBUG - https://sheets.googleapis.com:443 "GET /v4/spreadsheets/1GIV-uj0L9aW_kCKuk1xP6eBKf55MLFKQ4WRujto-318/values/Sheet2%21A2%3A2?valueRenderOption=FORMATTED_VALUE HTTP/1.1" 200 None
-2020-01-22 14:45:13,851 - urllib3.connectionpool - DEBUG - https://sheets.googleapis.com:443 "GET /v4/spreadsheets/1GIV-uj0L9aW_kCKuk1xP6eBKf55MLFKQ4WRujto-318/values/Sheet1%21A5%3A5?valueRenderOption=FORMATTED_VALUE HTTP/1.1" 200 None
-2020-01-22 14:45:14,087 - urllib3.connectionpool - DEBUG - https://sheets.googleapis.com:443 "GET /v4/spreadsheets/1GIV-uj0L9aW_kCKuk1xP6eBKf55MLFKQ4WRujto-318/values/Sheet1%21A1%3A1?valueRenderOption=FORMATTED_VALUE HTTP/1.1" 200 None
-2020-01-22 14:45:14,089 - root - DEBUG - readingConfig
-2020-01-22 14:45:14,090 - root - DEBUG - creatingLocal config file
-2020-01-22 14:45:14,090 - root - DEBUG - creatingDirectory
-2020-01-22 14:45:14,090 - root - DEBUG - run dir: /home/fkhan/simulation_builder/projects/liquid-liquid/runs/D
-2020-01-22 14:45:14,091 - root - DEBUG - copy dir: /home/fkhan/simulation_builder/projects/liquid-liquid
-2020-01-22 14:45:14,317 - urllib3.connectionpool - DEBUG - https://sheets.googleapis.com:443 "GET /v4/spreadsheets/1GIV-uj0L9aW_kCKuk1xP6eBKf55MLFKQ4WRujto-318/values/Sheet2%21A1%3A1?valueRenderOption=FORMATTED_VALUE HTTP/1.1" 200 None
-2020-01-22 14:45:14,483 - urllib3.connectionpool - DEBUG - https://sheets.googleapis.com:443 "GET /v4/spreadsheets/19wmyfHdLimSfdQxGceli1BIQpbfN_dxuyEOoHrTWu-A/values/Sheet1 HTTP/1.1" 200 None
-2020-01-22 14:45:14,643 - urllib3.connectionpool - DEBUG - https://sheets.googleapis.com:443 "GET /v4/spreadsheets/19wmyfHdLimSfdQxGceli1BIQpbfN_dxuyEOoHrTWu-A/values/Sheet2%21A2%3A2?valueRenderOption=FORMATTED_VALUE HTTP/1.1" 200 None
-2020-01-22 14:45:14,810 - urllib3.connectionpool - DEBUG - https://sheets.googleapis.com:443 "GET /v4/spreadsheets/19wmyfHdLimSfdQxGceli1BIQpbfN_dxuyEOoHrTWu-A/values/Sheet1%21A16%3A16?valueRenderOption=FORMATTED_VALUE HTTP/1.1" 200 None
-2020-01-22 14:45:14,969 - urllib3.connectionpool - DEBUG - https://sheets.googleapis.com:443 "GET /v4/spreadsheets/19wmyfHdLimSfdQxGceli1BIQpbfN_dxuyEOoHrTWu-A/values/Sheet1%21A1%3A1?valueRenderOption=FORMATTED_VALUE HTTP/1.1" 200 None
-2020-01-22 14:45:14,970 - root - DEBUG - readingConfig
-2020-01-22 14:45:14,971 - root - DEBUG - creatingLocal config file
-2020-01-22 14:45:14,972 - root - DEBUG - creatingDirectory
-2020-01-22 14:45:14,972 - root - DEBUG - run dir: /home/fkhan/simulation_builder/projects/viscoturbulence/runs/O
-2020-01-22 14:45:14,972 - root - DEBUG - copy dir: /home/fkhan/simulation_builder/projects/viscoturbulence
-2020-01-22 14:45:15,119 - urllib3.connectionpool - DEBUG - https://sheets.googleapis.com:443 "GET /v4/spreadsheets/19wmyfHdLimSfdQxGceli1BIQpbfN_dxuyEOoHrTWu-A/values/Sheet2%21A1%3A1?valueRenderOption=FORMATTED_VALUE HTTP/1.1" 200 None
-2020-01-22 14:45:15,121 - root - DEBUG - {'status': 'incomplete', 'logistics_sheets': [<Worksheet 'Sheet2' id:909624852>, <Worksheet 'Sheet2' id:2144222759>], 'params_sheets': [<Worksheet 'Sheet1' id:0>, <Worksheet 'Sheet1' id:0>], 'sheet_names': ['liquid-liquid', 'viscoturbulence'], 'run_labels': ['stop_wall_time', 'stop_sim_time', 'dt'], 'run_values': ['86400', '10000', '0.01'], 'params_labels': ['nX', 'nL', 'nY', 'Wi', 'Re', 'eta'], 'params_values': ['64', '4', '64', '12', '9', '0'], 'identifier': 'O', 'buildLocation': 'simulation_builder/projects/viscoturbulence/runs/O', 'copyLocation': 'simulation_builder/projects/viscoturbulence', 'config': <configparser.ConfigParser object at 0x2aaab69c75f8>, 'symlink_files': ['kturb.py', 'viscoturb.py']}
+2020-02-11 15:36:30,542 - root - DEBUG - making connections
+2020-02-11 15:36:30,547 - oauth2client.crypt - DEBUG - [b'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6ImFjMzM1OGM5NDBhMDljYjYxYTEzNDEyNmM4Y2VlMzc5OTM1ODBhMDEifQ', b'eyJhdWQiOiJodHRwczovL29hdXRoMi5nb29nbGVhcGlzLmNvbS90b2tlbiIsInNjb3BlIjoiaHR0cHM6Ly9zcHJlYWRzaGVldHMuZ29vZ2xlLmNvbS9mZWVkcyBodHRwczovL3d3dy5nb29nbGVhcGlzLmNvbS9hdXRoL2RyaXZlIiwiaWF0IjoxNTgxNDUzMzkwLCJleHAiOjE1ODE0NTY5OTAsImlzcyI6Imxldml0dEBsZXZpdHQuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20ifQ', b'vzl4cr4bVLd59wEPhwAEhoosP0x1BTzI51XbM_l9oaN8K8r_jI4GCqXynohx29mgfS_AkHxob_ZGwEtNuDRQnmA_e93x3UXk8BaX0WtQT4VQY2Ko5cv7ffynF_YfTqJySeLmQtwuyl6aBJU0OYQ-t05EImySv7K5BL718_SIypNiQRBE3RuzEWp0ds8l8Kz6WhJi5V8DSaYfO-39bDXSRNQk30ejQgMY3j1UZ8SJYv7NabPhfanIKMfmLrLHqhO3vazTPTqLgoq-_pINUtAsEbcmZhxNdGa5X_daMh27-ULPxoQZ9BYkGLZfxxuik3zwHbp7_jfDAzSTVflb1Yd-fQ']
+2020-02-11 15:36:30,548 - oauth2client.client - INFO - Refreshing access_token
+2020-02-11 15:36:30,663 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): www.googleapis.com
+2020-02-11 15:36:30,947 - urllib3.connectionpool - DEBUG - https://www.googleapis.com:443 "GET /drive/v3/files?q=mimeType%3D%27application%2Fvnd.google-apps.spreadsheet%27&pageSize=1000&supportsTeamDrives=True&includeTeamDriveItems=True HTTP/1.1" 200 None
+2020-02-11 15:36:31,106 - urllib3.connectionpool - DEBUG - https://www.googleapis.com:443 "GET /drive/v3/files?q=mimeType%3D%27application%2Fvnd.google-apps.spreadsheet%27&pageSize=1000&supportsTeamDrives=True&includeTeamDriveItems=True HTTP/1.1" 200 None
+2020-02-11 15:36:31,109 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): sheets.googleapis.com
+2020-02-11 15:36:31,381 - urllib3.connectionpool - DEBUG - https://sheets.googleapis.com:443 "GET /v4/spreadsheets/1GIV-uj0L9aW_kCKuk1xP6eBKf55MLFKQ4WRujto-318?includeGridData=false HTTP/1.1" 200 None
+2020-02-11 15:36:31,534 - urllib3.connectionpool - DEBUG - https://www.googleapis.com:443 "GET /drive/v3/files?q=mimeType%3D%27application%2Fvnd.google-apps.spreadsheet%27&pageSize=1000&supportsTeamDrives=True&includeTeamDriveItems=True HTTP/1.1" 200 None
+2020-02-11 15:36:31,726 - urllib3.connectionpool - DEBUG - https://sheets.googleapis.com:443 "GET /v4/spreadsheets/1GIV-uj0L9aW_kCKuk1xP6eBKf55MLFKQ4WRujto-318?includeGridData=false HTTP/1.1" 200 None
+2020-02-11 15:36:31,867 - urllib3.connectionpool - DEBUG - https://www.googleapis.com:443 "GET /drive/v3/files?q=mimeType%3D%27application%2Fvnd.google-apps.spreadsheet%27&pageSize=1000&supportsTeamDrives=True&includeTeamDriveItems=True HTTP/1.1" 200 None
+2020-02-11 15:36:31,991 - urllib3.connectionpool - DEBUG - https://sheets.googleapis.com:443 "GET /v4/spreadsheets/19wmyfHdLimSfdQxGceli1BIQpbfN_dxuyEOoHrTWu-A?includeGridData=false HTTP/1.1" 200 None
+2020-02-11 15:36:32,179 - urllib3.connectionpool - DEBUG - https://www.googleapis.com:443 "GET /drive/v3/files?q=mimeType%3D%27application%2Fvnd.google-apps.spreadsheet%27&pageSize=1000&supportsTeamDrives=True&includeTeamDriveItems=True HTTP/1.1" 200 None
+2020-02-11 15:36:32,299 - urllib3.connectionpool - DEBUG - https://sheets.googleapis.com:443 "GET /v4/spreadsheets/19wmyfHdLimSfdQxGceli1BIQpbfN_dxuyEOoHrTWu-A?includeGridData=false HTTP/1.1" 200 None
+2020-02-11 15:36:32,495 - urllib3.connectionpool - DEBUG - https://sheets.googleapis.com:443 "GET /v4/spreadsheets/1GIV-uj0L9aW_kCKuk1xP6eBKf55MLFKQ4WRujto-318/values/Sheet1 HTTP/1.1" 200 None
+2020-02-11 15:36:32,707 - urllib3.connectionpool - DEBUG - https://sheets.googleapis.com:443 "GET /v4/spreadsheets/1GIV-uj0L9aW_kCKuk1xP6eBKf55MLFKQ4WRujto-318/values/Sheet2%21A2%3A2?valueRenderOption=FORMATTED_VALUE HTTP/1.1" 200 None
+2020-02-11 15:36:32,921 - urllib3.connectionpool - DEBUG - https://sheets.googleapis.com:443 "GET /v4/spreadsheets/1GIV-uj0L9aW_kCKuk1xP6eBKf55MLFKQ4WRujto-318/values/Sheet1%21A4%3A4?valueRenderOption=FORMATTED_VALUE HTTP/1.1" 200 None
+2020-02-11 15:36:33,120 - urllib3.connectionpool - DEBUG - https://sheets.googleapis.com:443 "GET /v4/spreadsheets/1GIV-uj0L9aW_kCKuk1xP6eBKf55MLFKQ4WRujto-318/values/Sheet1%21A1%3A1?valueRenderOption=FORMATTED_VALUE HTTP/1.1" 200 None
+2020-02-11 15:36:33,121 - root - DEBUG - readingConfig
+2020-02-11 15:36:33,122 - root - DEBUG - creatingLocal config file
+2020-02-11 15:36:33,123 - root - DEBUG - creatingDirectory
+2020-02-11 15:36:33,123 - root - DEBUG - run dir: /home/fkhan/projects/liquid-liquid/runs/C
+2020-02-11 15:36:33,123 - root - DEBUG - copy dir: /home/fkhan/liquid-liquid
+2020-02-11 15:36:33,320 - urllib3.connectionpool - DEBUG - https://sheets.googleapis.com:443 "GET /v4/spreadsheets/1GIV-uj0L9aW_kCKuk1xP6eBKf55MLFKQ4WRujto-318/values/Sheet2%21A1%3A1?valueRenderOption=FORMATTED_VALUE HTTP/1.1" 200 None
+2020-02-11 15:36:33,493 - urllib3.connectionpool - DEBUG - https://sheets.googleapis.com:443 "GET /v4/spreadsheets/19wmyfHdLimSfdQxGceli1BIQpbfN_dxuyEOoHrTWu-A/values/Sheet1 HTTP/1.1" 200 None
+2020-02-11 15:36:33,617 - urllib3.connectionpool - DEBUG - https://sheets.googleapis.com:443 "GET /v4/spreadsheets/19wmyfHdLimSfdQxGceli1BIQpbfN_dxuyEOoHrTWu-A/values/Sheet2%21A2%3A2?valueRenderOption=FORMATTED_VALUE HTTP/1.1" 200 None
+2020-02-11 15:36:33,734 - urllib3.connectionpool - DEBUG - https://sheets.googleapis.com:443 "GET /v4/spreadsheets/19wmyfHdLimSfdQxGceli1BIQpbfN_dxuyEOoHrTWu-A/values/Sheet1%21A9%3A9?valueRenderOption=FORMATTED_VALUE HTTP/1.1" 200 None
+2020-02-11 15:36:33,861 - urllib3.connectionpool - DEBUG - https://sheets.googleapis.com:443 "GET /v4/spreadsheets/19wmyfHdLimSfdQxGceli1BIQpbfN_dxuyEOoHrTWu-A/values/Sheet1%21A1%3A1?valueRenderOption=FORMATTED_VALUE HTTP/1.1" 200 None
+2020-02-11 15:36:33,862 - root - DEBUG - readingConfig
+2020-02-11 15:36:33,863 - root - DEBUG - creatingLocal config file
+2020-02-11 15:36:33,864 - root - DEBUG - creatingDirectory
+2020-02-11 15:36:33,864 - root - DEBUG - run dir: /home/fkhan/projects/viscoturbulence/runs/H
+2020-02-11 15:36:33,864 - root - DEBUG - copy dir: /home/fkhan/viscoturbulence
+2020-02-11 15:36:33,978 - urllib3.connectionpool - DEBUG - https://sheets.googleapis.com:443 "GET /v4/spreadsheets/19wmyfHdLimSfdQxGceli1BIQpbfN_dxuyEOoHrTWu-A/values/Sheet2%21A1%3A1?valueRenderOption=FORMATTED_VALUE HTTP/1.1" 200 None
+2020-02-11 15:36:33,980 - root - DEBUG - {'status': 'incomplete', 'logistics_sheets': [<Worksheet 'Sheet2' id:909624852>, <Worksheet 'Sheet2' id:2144222759>], 'params_sheets': [<Worksheet 'Sheet1' id:0>, <Worksheet 'Sheet1' id:0>], 'sheet_names': ['liquid-liquid', 'viscoturbulence'], 'run_labels': ['stop_wall_time', 'stop_sim_time', 'dt'], 'run_values': ['86400', '10000', '0.01'], 'params_labels': ['nX', 'nL', 'nY', 'Wi', 'Re', 'eta'], 'params_values': ['64', '4', '64', '12', '2.5', '0'], 'identifier': 'H', 'buildLocation': 'projects/viscoturbulence/runs/H', 'copyLocation': 'viscoturbulence', 'config': <configparser.ConfigParser object at 0x2aaab69ddf98>, 'symlink_files': ['kturb.py', 'viscoturb.py']}
