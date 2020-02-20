@@ -1,0 +1,12 @@
+#ignore client_secret.json
+file_manager/client_secret.json
+
+#ignore macOS files
+.DS_Store
+
+#ignore .swp and .pyc files
+*.pyc
+*.swp
+
+#ignore __pycache__
+file_manager/__pycache__/
