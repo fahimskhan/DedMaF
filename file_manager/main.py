@@ -1,4 +1,5 @@
 from read_parameters import Parameters
+from status_update import UpdateStatus
 import time
 import logging
 
@@ -11,7 +12,10 @@ logging.basicConfig(filename='connection.log', format='%(asctime)s - %(name)s - 
 
 #python main.py to run main process
 def readDataFeed():
+    #make folders and param files
     spreadsheetParameters = Parameters()
     logging.debug(spreadsheetParameters.__dict__)
-    #make folders and param files
+    #check for and update statuses of job runs 
+    spreadsheetStatusUpdate = UpdateStatus()
+    logging.debug(spreadsheetStatusUpdate.__dict__)
 readDataFeed()

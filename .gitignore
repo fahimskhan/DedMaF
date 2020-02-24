@@ -10,3 +10,6 @@ file_manager/client_secret.json
 
 #ignore __pycache__
 file_manager/__pycache__/
+
+#ignore connection.log
+file_manager/connection.log
