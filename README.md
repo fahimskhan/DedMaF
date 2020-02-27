@@ -33,7 +33,7 @@
 #### $conda env create -f environment.yml
 #### $conda activate test
 
-#### In order for the program to run 'test' environment has to be always kept activated. However if you exit out of leavitt, when you log back in, the environment will be reset to 'base'. To avoid this, place the contents of bashrc.txt in your .bashrc. Once you do this, 'test' environment will be automatically activated upon each login.
+#### In order for the program to run 'test' environment has to be always kept activated. However if you exit out of leavitt, when you log back in, the environment will be reset to 'base'. To avoid this, place the contents of env_bashrc.txt in your .bashrc. Once you do this, 'test' environment will be automatically activated upon each login.
 
 #### After you've activated the environment check to see that the correct version of python is installed.  
 
