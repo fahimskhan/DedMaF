@@ -39,7 +39,7 @@
 
 #### $python -V
 
-### Version should be 3.6.5
+#### Version should be 3.6.5
 
 ## Step 5: (Create client_secret.json)
 
@@ -69,6 +69,6 @@
 
 #### Input the row number of the run you wish the program to read in worksheet 1 of your spreadsheet. After a while you will see a new directory made /home/projects/`project_name`/runs/`run_letters`. Submit a job using the following command:
 
-#### $sbatch r`run_letters_project_name`.sh
+#### $sbatch r`run_letters`__`project_name`.sh
 
 #### The job number of the submitted job will appear in worksheet 2 of your spreadsheet under appropriate column.
