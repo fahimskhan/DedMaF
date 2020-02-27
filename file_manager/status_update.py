@@ -1,3 +1,6 @@
+#This program checks which jobs are currently running and updates sheets accordingly,
+#whether a completed job run is successful or not
+
 #import libraries and modules
 import gspread
 from gspread.models import Cell
@@ -59,7 +62,7 @@ class UpdateStatus():
         config = configparser.ConfigParser()
         config.read(Path.home().joinpath('simulation_builder/file_manager/directory.cfg'))
         #store base directory path in self
-        self.buildLocation = config['Paths']['base_dir']
+        self.buildLocation = config['Dir_paths']['base_dir']
 
 ################################################################################
 
@@ -71,7 +74,8 @@ class UpdateStatus():
         #define command to check of directory .simulation_builder exists
         self.dir_cmd = f'[ -d {self.fdir} ]'
         #define command to check if file curr_status exists
-        self.file_cmd = f'ls {self.fpath}'
+        # self.file_cmd = f'ls {self.fpath}'
+        self.file_cmd = f'find {self.fdir} -name curr_status'
 
 ################################################################################
 
@@ -83,7 +87,7 @@ class UpdateStatus():
         #extract user name from home directory path
         user_name = home_dir.split('/')[-1]
         #find full path of squeue, this is important for cronjob
-        squeue_cmd = 'which squeue'
+        squeue_cmd = 'locate -b "\\squeue"'
         #execute find squeue path command
         try:
             #store squeue path
@@ -118,7 +122,7 @@ class UpdateStatus():
         #extract user name from home directory path
         user_name = home_dir.split('/')[-1]
         #find full path of scancel, this is important for cronjob
-        scancel_cmd = 'which scancel'
+        scancel_cmd = 'locate -b "\\scancel"'
         #execute find scancel path command
         try:
             #store scancel path
@@ -176,13 +180,17 @@ class UpdateStatus():
             last_array_avail = True
             #execute command to check if local file exists
             try:
+                #store file path in result
                 result = subprocess.check_output(self.file_cmd, shell=True)
-            #if file does not exist
+                result = str(result, 'utf-8').split('\n')[0]
+            #if command not properly executed
             except subprocess.CalledProcessError as e:
+                #raise error
+                raise RuntimeError("command '{}' return with error (code {}): {}".format(e.cmd, e.returncode, e.output))
+            #if result is empty string, local file does not exist
+            if result == '':
                 #set last_array_avail to False
                 last_array_avail = False
-                #avoid raising error
-                # raise RuntimeError("command '{}' return with error (code {}): {}".format(e.cmd, e.returncode, e.output))
 
             #initialize array to store completed jobs
             comp_proj_run_job = []
@@ -200,7 +208,6 @@ class UpdateStatus():
                         #comp_proj_run_job looks like proj_run_job
                         comp_proj_run_job.append(last_proj_run_job[i])
 
-
             #store elements in proj_run_job and comp_proj_run_job in nested hash tables
             #initialize hash table for current runs
             proj_hash = {}
@@ -209,18 +216,23 @@ class UpdateStatus():
                 #proj_run_job[i][1] is run letters
                 #proj_run_job[i][2] is job number
             #loop over each array in proj_run_job
+            #initialize array to store indices of multiple job numbers for a run
+            remove_is = []
             for i in range(0,len(proj_run_job)):
                 #if proj short name already a first key
                 if proj_run_job[i][0] in proj_hash:
                     #if run letters already a second key
                     if proj_run_job[i][1] in proj_hash[proj_run_job[i][0]]:
-                        #do not append job number to array value of second key
                         #print warning to user
                         print(f'WARNING: Multiple job runs submitted for project {proj_run_job[i][0]}, run {proj_run_job[i][1]}. Job {proj_run_job[i][2]} cancelled.')
                         #call execScancel() with job number to scancel job
                         execScancel(proj_run_job[i][2])
                         #append job number to comp_proj_run_job
                         comp_proj_run_job.append(proj_run_job[i])
+                        #still append job number to array value of second key to ensure first job number is not set to empty while updating sheet
+                        proj_hash[proj_run_job[i][0]][proj_run_job[i][1]].append(proj_run_job[i][2])
+                        #store i to be removed letter from proj_run_job
+                        remove_is.append(i)
                     else:
                         #set run letters as second key
                         proj_hash[proj_run_job[i][0]][proj_run_job[i][1]] = []
@@ -235,7 +247,12 @@ class UpdateStatus():
                     proj_hash[proj_run_job[i][0]][proj_run_job[i][1]].append(proj_run_job[i][2])
             #e.g. proj_hash = {'liq': {'AAD' : [5679]}, 'vis': {'AAM' : [5678]}}
 
+            #remove multiple job numbers from proj_run_job
+            if remove_is != []:
+                del proj_run_job[remove_is[0]:remove_is[-1]+1]
+            #sort comp_proj_run_job so that sheet is updated in order
             comp_proj_run_job = sorted(comp_proj_run_job)
+
             #initialize hash table for completed runs
             comp_proj_hash = {}
             #populate nested hash table for use in updating sheets
@@ -263,6 +280,7 @@ class UpdateStatus():
                     #append job number to array value of second key
                     comp_proj_hash[comp_proj_run_job[i][0]][comp_proj_run_job[i][1]].append(comp_proj_run_job[i][2])
             #e.g. proj_hash = {'liq': {'AAD' : [5677]}, 'vis': {'AAO' : [5676]}}
+
 
             #update sheets
             #loop over each proj short name in proj hash
@@ -292,12 +310,14 @@ class UpdateStatus():
                         #empty comp job numbers from running col and populate to either Complete or Error column
                         #loop over completed runs for each sheet
                         for comp_run in comp_proj_hash[proj]:
-                            #calculate row number
-                            row_num = col_num.index(comp_run) + 1
-                            #remove job number from Running column
-                            cell_list.append(Cell(row = row_num,
-                                                  col = 1,
-                                                  value = ''))
+                            #if more than one job numbers present, do not empty cell
+                            if len(proj_hash[proj][comp_run]) == 1:
+                                #calculate row number
+                                row_num = col_num.index(comp_run) + 1
+                                #remove job number from Running column
+                                cell_list.append(Cell(row = row_num,
+                                                      col = 1,
+                                                      value = ''))
 
                             #determine whether completed job number should be moved to Complete or Error
                             #check for 'Success!' in slurm output file
@@ -323,7 +343,7 @@ class UpdateStatus():
                             #check for 'Success!' starting from the last line
                             for i in reversed(range(len(lines))):
                                 #if 'Success!' found
-                                if 'Success!' in lines[i]:
+                                if 'SuCcEsS!' in lines[i]:
                                     #set sucess to True
                                     success = True
                                     #break out of loop
@@ -394,13 +414,17 @@ class UpdateStatus():
             last_array_avail = True
             #execute command to check if local file exists
             try:
+                #store file path in result
                 result = subprocess.check_output(self.file_cmd, shell=True)
-            #if file does not exist
+                result = str(result, 'utf-8').split('\n')[0]
+            #if command not properly executed
             except subprocess.CalledProcessError as e:
+                #raise error
+                raise RuntimeError("command '{}' return with error (code {}): {}".format(e.cmd, e.returncode, e.output))
+            #if result is empty string, local file does not exist
+            if result == '':
                 #set last_array_avail to False
                 last_array_avail = False
-                #avoid raising error
-                # raise RuntimeError("command '{}' return with error (code {}): {}".format(e.cmd, e.returncode, e.output))
 
             #read in last stored array if available
             if last_array_avail:
@@ -482,7 +506,7 @@ class UpdateStatus():
                             out_read.close()
 
                             for i in reversed(range(len(lines))):
-                                if 'Success!' in lines[i]:
+                                if 'SuCcEsS!' in lines[i]:
                                     success = True
                                     break
 
