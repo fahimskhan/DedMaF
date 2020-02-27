@@ -28,12 +28,17 @@
 #### For example, copy_dir = projects tells the program to look for a project in /home/`user_name`/projects.
 
 ## Step 4: (Dependencies and packages)
-#### There are a number of dependencies needed in order to use this program.  Navigate to simulation_builder and activate a conda environment using:
+
+#### There are a number of dependencies needed in order to use this program. First install conda if you have not already done so:
+
+#### https://docs.conda.io/projects/conda/en/latest/user-guide/install/ 
+
+#### Then, navigate to simulation_builder and activate a conda environment using:
 
 #### $conda env create -f environment.yml
 #### $conda activate test
 
-#### In order for the program to run 'test' environment has to be always kept activated. However if you exit out of leavitt, when you log back in, the environment will be reset to 'base'. To avoid this, place the contents of env_bashrc.txt in your .bashrc. Once you do this, 'test' environment will be automatically activated upon each login.
+#### In order for the program to run 'test' environment has to be always kept activated. However if you exit out of leavitt, when you log back in, the environment will be reset to 'base'. To avoid this, place `source activate test` at the bottom of your .bashrc accessed from root directory. Once you do this, 'test' environment will be automatically activated upon each login.
 
 #### After you've activated the environment check to see that the correct version of python is installed.  
 
