@@ -54,7 +54,7 @@
 
 #### Once you have successfully downloaded a .json file containing your keys, rename the file 'client_secert.json' and place in /simulation_builder/file_manager
 
-## Step 7 (Copy sheet template):
+## Step 6 (Copy sheet template):
 
 #### Follow link:
 
@@ -62,7 +62,7 @@
 
 #### and copy sheet template. Make sure name of spreadsheet corresponds to the project name. Follow instructions in sheets. Do not forget to share your copied template sheet with client_email from inside client_secret.json. The program can only read worksheets that have been shared with client_email.
 
-## Step 6 (Submit cronjob):
+## Step 7 (Submit cronjob):
 
 #### Navigate to /simulation_builder and run the following command:
 
@@ -74,7 +74,7 @@
 
 #### $python remove_cronjob.py
 
-## Step 7 (Try it!)
+## Step 8 (Try it!)
 
 #### Input the row number of the run you wish the program to read in worksheet 2 of your spreadsheet. After a while you will see a new directory made /home/projects/`project_name`/runs/`run_letters`. Submit a job using the following command:
 
