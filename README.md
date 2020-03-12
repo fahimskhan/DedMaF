@@ -1,4 +1,4 @@
-# Simulation Builder/Management Software
+# Dedalus Management Framework (DedMaF)
 
 ## Usage:
 
